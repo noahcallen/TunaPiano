@@ -62,7 +62,7 @@ app.MapGet("/Song", async (TunaPianoDbContext db) =>
 app.MapGet("/Song/{id}", async (TunaPianoDbContext db, int id) =>
 {
     var song = await db.Song
-        .Include(s => s.ArtistId)
+        .Include(s => s.Artist)
         .Include(s => s.Genres)
         .SingleOrDefaultAsync(s => s.Id == id);
 
